@@ -1,0 +1,5 @@
+usr/lib/ibus/*
+usr/share/applications/ibus-setup-kkc.desktop
+usr/share/ibus-kkc/icons/ibus-kkc.svg
+usr/share/ibus/component/kkc.xml
+usr/share/locale/*

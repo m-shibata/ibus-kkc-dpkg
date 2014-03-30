@@ -1,0 +1,7 @@
+ibus-kkc (1.5.19-1) unstable; urgency=low
+
+  * Initial release. Closes: #723062
+  * Add -dbg package and reorganize debian/* for Debian while referencing
+    the Mitsuya Shibata's Ubuntu work.
+
+ -- Osamu Aoki <osamu@debian.org>  Sun, 30 Mar 2014 17:43:34 +0900

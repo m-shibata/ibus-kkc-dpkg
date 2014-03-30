@@ -1,0 +1,41 @@
+Source: ibus-kkc
+Section: utils
+Priority: extra
+Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
+Uploaders: Osamu Aoki <osamu@debian.org>
+Build-Depends: autotools-dev,
+               debhelper (>= 9),
+               intltool,
+               libgee-dev,
+               libgtk-3-dev,
+               libibus-1.0-dev,
+               libjson-glib-dev,
+               libkkc-dev,
+               valac
+Standards-Version: 3.9.5
+Homepage: https://bitbucket.org/libkkc/libkkc/wiki/Home
+Vcs-Git: git://anonscm.debian.org/pkg-ime/ibus-kkc.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ime/ibus-kkc.git
+
+Package: ibus-kkc
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Japanese Kana Kanji input engine for IBus
+ IBus is an Intelligent Input Bus. It is a new input framework for Linux
+ OS. It provides full featured and user friendly input method user interface.
+ It also may help developers to develop input method easily.
+ .
+ ibus-kkc is an input method (IM) for Japanese, based on IBus.
+
+Package: ibus-kkc-dbg
+Section: debug
+Architecture: any
+Multi-Arch: same
+Depends: ibus-kkc (= ${binary:Version}), ${misc:Depends}
+Description: Japanese Kana Kanji input engine for IBus - debugging symbols
+ IBus is an Intelligent Input Bus. It is a new input framework for Linux
+ OS. It provides full featured and user friendly input method user interface.
+ It also may help developers to develop input method easily.
+ .
+ This package contains the debugging symbols.
