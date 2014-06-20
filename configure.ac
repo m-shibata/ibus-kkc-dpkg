@@ -25,7 +25,7 @@ m4_define([package_name], [ibus-kkc])
 m4_define([ibus_released], [1])
 m4_define([ibus_major_version], [1])
 m4_define([ibus_minor_version], [5])
-m4_define([ibus_micro_version], [19])
+m4_define([ibus_micro_version], [20])
 m4_define(ibus_maybe_datestamp,
     m4_esyscmd([if test x]ibus_released[ != x1; then date +.%Y%m%d | tr -d '\n\r'; fi]))
 
@@ -109,7 +109,6 @@ AC_SUBST(VALAFLAGS)
 GETTEXT_PACKAGE=ibus-kkc
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Define to the read-only architecture-independent data directory.])
-AM_GLIB_GNU_GETTEXT
 
 # check glib-compile-resources
 GLIB_COMPILE_RESOURCES=`$PKG_CONFIG --variable glib_compile_resources gio-2.0`

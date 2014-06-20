@@ -1,3 +1,55 @@
+commit c6859b80dc7fd315ae827974c3803e3279f46010
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-04-01 17:31:15 +0900
+
+    Bump version to 1.5.20
+
+M	configure.ac
+
+commit 68b389eec62ff0866020809b959fa315f0b5b51c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-04-01 17:27:20 +0900
+
+    build: Remove unnecessary AM_GLIB_GNU_GETTEXT call
+
+M	configure.ac
+
+commit be955f1b9d2bdc68d327fcbf762d67f8103e260e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-02-27 17:14:15 +0900
+
+    Remove ignored keys logic
+
+M	src/engine.vala
+
+commit b7a8a8b15c55409c319bc33b819b8826173b3cbd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2013-12-20 17:33:24 +0900
+
+    Update translations
+
+M	po/ja.po
+
+commit 1c5422f679b150e613679af1593575c0c1b74f9a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2013-12-20 17:30:25 +0900
+
+    setup: Rename label "IBus Kana Kanji" -> "Kana Kanji Conversion"
+
+M	src/ibus-kkc-preferences.ui.in
+M	src/ibus-setup-kkc.desktop.in.in
+
+commit d18d7048f98f958dbf3e06b9b6c7801e4197a7dd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2013-12-16 17:15:43 +0900
+
+    Instantly apply page-start and page-size settings change
+    
+    Reported by Mike FABIAN at
+    https://bugzilla.redhat.com/show_bug.cgi?id=1024061
+
+M	src/engine.vala
+
 commit 14a59b069c292ef7355fa6ff042e87ef1ebef842
 Author: Daiki Ueno <ueno@unixuser.org>
 Date:   2013-12-16 13:21:44 +0900
