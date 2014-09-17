@@ -41,6 +41,7 @@ class KkcEngine : IBus.Engine {
     IBus.Keymap keymap;
     IBus.Property input_mode_prop;
     IBus.PropList prop_list;
+    bool properties_registered = false;
 
     Map<Kkc.InputMode, IBus.Property> input_mode_props =
         new HashMap<Kkc.InputMode, IBus.Property> ();
@@ -281,16 +282,15 @@ class KkcEngine : IBus.Engine {
     void update_input_mode () {
         // Update the menu item
         var iter = input_mode_props.map_iterator ();
-        if (iter.first ()) {
-            do {
-                var input_mode = iter.get_key ();
-                var prop = iter.get_value ();
-                if (input_mode == context.input_mode)
-                    prop.set_state (IBus.PropState.CHECKED);
-                else
-                    prop.set_state (IBus.PropState.UNCHECKED);
+        while (iter.next ()) {
+            var input_mode = iter.get_key ();
+            var prop = iter.get_value ();
+            if (input_mode == context.input_mode)
+                prop.set_state (IBus.PropState.CHECKED);
+            else
+                prop.set_state (IBus.PropState.UNCHECKED);
+            if (properties_registered)
                 update_property (prop);
-            } while (iter.next ());
         }
 
         // Update the menu
@@ -304,7 +304,8 @@ class KkcEngine : IBus.Engine {
 #else
         input_mode_prop.set_label (symbol);
 #endif
-        update_property (input_mode_prop);
+        if (properties_registered)
+            update_property (input_mode_prop);
     }
 
     static void reload_dictionaries () {
@@ -550,8 +551,9 @@ class KkcEngine : IBus.Engine {
     }
 
     public override void focus_in () {
-        register_properties (prop_list);
         update_input_mode ();
+        register_properties (prop_list);
+        properties_registered = true;
         base.focus_in ();
     }
 
@@ -559,6 +561,7 @@ class KkcEngine : IBus.Engine {
         context.reset ();
         hide_preedit_text ();
         hide_lookup_table ();
+        properties_registered = false;
         base.focus_out ();
     }
 
