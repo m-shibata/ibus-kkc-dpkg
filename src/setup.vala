@@ -404,7 +404,11 @@ class Setup : Object {
             Gtk.TreeIter iter;
             var model = (Gtk.ListStore) shortcut_treeview.get_model ();
             model.append (out iter);
-            model.set (iter, 0, command, 1, null, -1);
+            model.set (iter,
+                       0, command,
+                       1, null,
+                       2, Kkc.Keymap.get_command_label (command),
+                       -1);
         }
         shortcut_dialog.hide ();
     }
@@ -419,10 +423,12 @@ class Setup : Object {
             if (model.get_iter (out iter, row)) {
                 Kkc.KeyEvent *old_event;
                 model.get (iter, 1, out old_event, -1);
-                if (old_event->modifiers == 0 &&
-                    old_event->keyval in IGNORED_KEYVALS)
-                    continue;
-                keymap.set (old_event, null);
+                if (old_event != null) {
+                    if (old_event->modifiers == 0 &&
+                        old_event->keyval in IGNORED_KEYVALS)
+                        continue;
+                    keymap.set (old_event, null);
+                }
                 ((Gtk.ListStore)model).remove (iter);
             }
         }
@@ -454,7 +460,7 @@ class Setup : Object {
         Variant? variant = preferences.get ("system_dictionaries");
         assert (variant != null);
         string[] strv = variant.dup_strv ();
-        Set<string> enabled = new HashSet<string> ();
+        Set<string> enabled = new Gee.HashSet<string> ();
         foreach (var str in strv) {
             enabled.add (str);
         }

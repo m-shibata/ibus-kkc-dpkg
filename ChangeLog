@@ -1,3 +1,65 @@
+commit 983857a4ffea83da88289a5a3f322ac4de765d83
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-07-07 13:30:53 +0900
+
+    Bump version to 1.5.21
+    
+    Drop support for libkkc <= 0.3.3
+
+M	configure.ac
+
+commit cef332d94a6f09b25ee469107ac9691f1ecc7ebe
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-24 16:25:43 +0900
+
+    setup: Check if the existing shortcut key is non-null, when removing
+
+M	src/setup.vala
+
+commit 3d5e00ad1565057552f557193c1907da8de75248
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-24 16:24:22 +0900
+
+    setup: Set the "label" attribute properly when adding a shortcut
+
+M	src/setup.vala
+
+commit e252d6887087bf9660827209b9358a716a4bacb0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-16 11:29:24 +0900
+
+    Fix HashSet name clash between Vala 0.26 glib-2.0.vapi and gee-0.8.vapi
+
+M	src/setup.vala
+
+commit fe466be200444642e03be8daa4fd8af50ac71522
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-16 11:28:16 +0900
+
+    Port to libgee 0.8 API
+
+M	src/Makefile.am
+M	src/engine.vala
+M	src/ibus-kkc.deps
+
+commit 185122b953ad990083d8748ef336b89205b64efc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-09 11:08:50 +0900
+
+    Don't send update-property signal until properties are registered
+    
+    To reduce the number of D-Bus signals sent on focus-in.
+
+M	src/engine.vala
+
+commit 1f3e5b1f8afb2768255641b96dfeddf70320c010
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   2014-06-02 17:28:20 +0900
+
+    Update translations
+
+M	po/ja.po
+
 commit c6859b80dc7fd315ae827974c3803e3279f46010
 Author: Daiki Ueno <ueno@unixuser.org>
 Date:   2014-04-01 17:31:15 +0900

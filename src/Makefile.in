@@ -104,8 +104,8 @@ libexec_PROGRAMS = ibus-engine-kkc$(EXEEXT) ibus-setup-kkc$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	preferences.c dictionary.c engine.c setup.c \
-	$(top_srcdir)/depcomp $(srcdir)/ibus_engine_kkc_vala.stamp \
-	$(srcdir)/ibus_setup_kkc_vala.stamp $(srcdir)/libutil.h \
+	$(top_srcdir)/depcomp $(srcdir)/ibus_setup_kkc_vala.stamp \
+	$(srcdir)/ibus_engine_kkc_vala.stamp $(srcdir)/libutil.h \
 	$(srcdir)/ibus-kkc.vapi $(srcdir)/libutil_la_vala.stamp
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
@@ -409,7 +409,7 @@ libutil_la_VALAFLAGS = \
 	-H libutil.h --vapi ibus-kkc.vapi	\
 	--vapidir=.				\
 	--pkg config				\
-	--pkg gee-1.0				\
+	--pkg gee-0.8				\
 	--pkg kkc-1.0				\
 	--pkg ibus-1.0				\
 	--library ibus-kkc			\
@@ -756,15 +756,6 @@ ibus_setup_kkc-ibus-setup-kkc-resources.obj: ibus-setup-kkc-resources.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ibus-setup-kkc-resources.c' object='ibus_setup_kkc-ibus-setup-kkc-resources.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ibus_setup_kkc_CFLAGS) $(CFLAGS) -c -o ibus_setup_kkc-ibus-setup-kkc-resources.obj `if test -f 'ibus-setup-kkc-resources.c'; then $(CYGPATH_W) 'ibus-setup-kkc-resources.c'; else $(CYGPATH_W) '$(srcdir)/ibus-setup-kkc-resources.c'; fi`
-$(srcdir)/engine.c: $(srcdir)/ibus_engine_kkc_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/ibus_engine_kkc_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ibus_engine_kkc_vala.stamp; \
-	fi
-$(srcdir)/ibus_engine_kkc_vala.stamp: engine.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(ibus_engine_kkc_VALAFLAGS) $(VALAFLAGS) -C engine.vala
-	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/setup.c: $(srcdir)/ibus_setup_kkc_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/ibus_setup_kkc_vala.stamp; fi
 	@if test -f $@; then :; else \
@@ -773,6 +764,15 @@ $(srcdir)/setup.c: $(srcdir)/ibus_setup_kkc_vala.stamp
 $(srcdir)/ibus_setup_kkc_vala.stamp: setup.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(ibus_setup_kkc_VALAFLAGS) $(VALAFLAGS) -C setup.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/engine.c: $(srcdir)/ibus_engine_kkc_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/ibus_engine_kkc_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ibus_engine_kkc_vala.stamp; \
+	fi
+$(srcdir)/ibus_engine_kkc_vala.stamp: engine.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(ibus_engine_kkc_VALAFLAGS) $(VALAFLAGS) -C engine.vala
 	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/preferences.c: $(srcdir)/libutil_la_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/libutil_la_vala.stamp; fi
