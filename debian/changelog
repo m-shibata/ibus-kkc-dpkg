@@ -1,3 +1,11 @@
+ibus-kkc (1.5.21-1) unstable; urgency=medium
+
+  * New upstream releasae.
+  * Refresh patches.
+  * Change Build-Depends from libgee-dev to libgee-0.8-dev. Closes: #753865
+
+ -- Mitsuya Shibata <mty.shibata@gmail.com>  Wed, 17 Sep 2014 12:43:26 +0900
+
 ibus-kkc (1.5.20-1) unstable; urgency=medium
 
   * New upstream release.
