@@ -8,11 +8,9 @@ Subject: [PATCH] Automatically set input mode depending on content-type
  src/ibus-1.0.vapi | 27 +++++++++++++++++++++++++++
  2 files changed, 44 insertions(+)
 
-diff --git a/src/engine.vala b/src/engine.vala
-index ff7111b..7818cf5 100644
 --- a/src/engine.vala
 +++ b/src/engine.vala
-@@ -599,6 +599,23 @@ class KkcEngine : IBus.Engine {
+@@ -603,6 +603,23 @@
          context.candidates.page_down ();
      }
  
@@ -36,11 +34,9 @@ index ff7111b..7818cf5 100644
      static bool ibus;
  
      const OptionEntry[] options = {
-diff --git a/src/ibus-1.0.vapi b/src/ibus-1.0.vapi
-index 6c200f9..3c1f6a3 100644
 --- a/src/ibus-1.0.vapi
 +++ b/src/ibus-1.0.vapi
-@@ -206,6 +206,7 @@ namespace IBus {
+@@ -206,6 +206,7 @@
  		public virtual signal void set_capabilities (uint caps);
  		public virtual signal void set_cursor_location (int x, int y, int w, int h);
  		public virtual signal void set_surrounding_text (GLib.Object text, uint cursor_index, uint anchor_pos);
@@ -48,7 +44,7 @@ index 6c200f9..3c1f6a3 100644
  	}
  	[CCode (cheader_filename = "ibus.h")]
  	public class EngineDesc : IBus.Serializable {
-@@ -653,6 +654,32 @@ namespace IBus {
+@@ -653,6 +654,32 @@
  		MENU,
  		SEPARATOR
  	}
@@ -81,6 +77,3 @@ index 6c200f9..3c1f6a3 100644
  	[CCode (cheader_filename = "ibus.h", has_target = false)]
  	public delegate void FreeFunc (void* object);
  	[CCode (cheader_filename = "ibus.h", has_target = false)]
--- 
-1.8.3.1
-
